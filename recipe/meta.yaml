@@ -39,6 +39,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - fcollonval
     - jtpio
     - jasongrout
     - blink1073
