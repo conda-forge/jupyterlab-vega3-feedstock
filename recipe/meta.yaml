@@ -17,7 +17,11 @@ build:
 
 requirements:
   host:
-    - jupyter-packaging >=0.7.9,<0.8.0
+    - hatch-jupyter-builder >=0.5
+    - jupyterlab >=3,<4
+    - hatch-nodejs-version
+    - hatchling >=1.5.0
+    - jupyterlab >=4,<5
     - pip
     - python >=3.6
   run:
@@ -35,7 +39,9 @@ about:
   home: https://github.com/jupyterlab/jupyter-renderers
   summary: JupyterLab - Vega 3 and Vega-Lite 2 Mime Renderer Extension
   license: BSD-3-Clause
-  license_file: LICENSE
+  license_file:
+    - LICENSE
+    - jupyterlab_vega3/labextension/static/third-party-licenses.json
 
 extra:
   recipe-maintainers:
