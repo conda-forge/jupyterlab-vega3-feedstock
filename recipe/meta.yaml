@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
   sha256: 0e940ea443ffab48ae9e8e240a856a7470713b5640c29e7ddde2ddaacb748d76
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -22,9 +22,9 @@ requirements:
     - hatchling >=1.5.0
     - jupyterlab >=4,<5
     - pip
-    - python >=3.6
+    - python {{ python_min }}
   run:
-    - python >=3.6
+    - python >={{ python_min }}
 
 test:
   commands:
@@ -33,6 +33,7 @@ test:
     - if exist %PREFIX%\\share\\jupyter\\labextensions\\@jupyterlab\\vega3-extension\\package.json (exit 0) else (exit 1)         # [win]
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/jupyterlab/jupyter-renderers
